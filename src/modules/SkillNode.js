@@ -33,20 +33,32 @@ class SkillNode extends HTMLElement {
           justify-content: center;
           align-items: center;
           font-size: 0.7rem;
-          transition: 0.15s;
+          transition: 0.2s;
+          position: relative;
         }
 
         button:hover {
+          transform: scale(1.05);
           border-color: #ec4899;
-          transform: translateY(-2px);
         }
 
         .icon {
-          font-size: 1rem;
+          font-size: 1.25rem;
+        }
+
+        .badge {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        font-size: 0.6rem;
+        background: #22c55e;
+        padding: 2px 4px;
+        border-radius: 4px;
         }
       </style>
 
       <button>
+        <div class="badge">${t.difficulty ?? "B"}</div>
         <div class="icon">${t.icon ?? "📘"}</div>
         <div>${t.label ?? "Sin título"}</div>
       </button>

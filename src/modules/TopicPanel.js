@@ -16,7 +16,7 @@ class TopicPanel extends HTMLElement {
 
   render() {
     if (!this._topic) {
-      this.shadowRoot.innerHTML = `<p>Selecciona un tema.</p>`;
+      this.shadowRoot.innerHTML = `<p style="color: white;">Selecciona un tema.</p>`;
       return;
     }
 
@@ -25,20 +25,25 @@ class TopicPanel extends HTMLElement {
     const highlights = Array.isArray(t.highlights) ? t.highlights : [];
 
     this.shadowRoot.innerHTML = `
+
       <style>
+        h2 {
+          color: white;
+        }
+
         iframe {
           width: 100%;
-          height: 300px;
-          border: none;
-          border-radius: 8px;
+          height: 320px;
+          border: 2px solid #6366f1;
+          border-radius: 10px;
         }
 
         .highlight {
-          padding: 0.3rem 0.6rem;
+          padding: 0.4rem 0.7rem;
           border: 1px solid #6366f1;
           border-radius: 999px;
           cursor: pointer;
-          margin-right: 0.3rem;
+          margin-right: 0.2rem;
           font-size: 0.75rem;
           background: transparent;
           color: white;
@@ -49,31 +54,29 @@ class TopicPanel extends HTMLElement {
         }
       </style>
 
-      <h2>${t.label ?? "Sin título"}</h2>
+      <h2>${t.icon} ${t.label}</h2>
 
       <iframe
-        src="https://www.youtube.com/embed/${t.youtubeId ?? ""}"
-        allowfullscreen
-      ></iframe>
+        src="https://www.youtube.com/embed/${t.youtubeId}"></iframe>
+        
 
-      <h3>Highlights</h3>
+      <h3 style="color: white;">Highlights</h3>
       <div>
         ${
-          highlights.length > 0
-            ? highlights
+          (t.highlights || [])
                 .map(
                   (h) => `
-                    <button class="highlight" data-time="${h.time ?? 0}">
-                      ${h.label ?? "Sin etiqueta"}
+                    <button class="highlight" data-time="${h.time}">
+                      ${h.label}
                     </button>
                   `
                 )
-                .join("")
-            : "<p>No hay highlights.</p>"
-        }
-      </div>
-    `;
-
+                .join("")}
+        
+            </div>
+        `;
+    
+  
     const iframe = this.shadowRoot.querySelector("iframe");
 
     this.shadowRoot.querySelectorAll(".highlight").forEach((btn) => {

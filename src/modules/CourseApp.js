@@ -18,6 +18,9 @@ class CourseApp extends HTMLElement {
           display: flex;
           width: 100%;
           height: 100vh;
+          background: #0a0f1f;
+          color: white;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
         .sidebar {
           width: 320px;
@@ -33,10 +36,20 @@ class CourseApp extends HTMLElement {
           padding: 1rem;
           display: flex;
           flex-direction: column;
+            gap: 1rem;
         }
+
+        .header {
+          font-size: 1.5rem;
+          font-weight: bold;
+          padding-bottom: 0.5rem;
+            border-bottom: 1px solid #1f2937;
+        }
+
       </style>
 
       <div class="sidebar">
+        <div class="header">Curso de Desarrollo Web</div>
         <skill-grid></skill-grid>
       </div>
 
