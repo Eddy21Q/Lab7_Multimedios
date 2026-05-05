@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+:root {
+  --bg-main: #050712;
+  --bg-elevated: #0b0f1f;
+  --bg-soft: #101426;
+
+  --accent-indigo: #6366f1;
+  --accent-pink: #ec4899;
+
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+
+  --border-subtle: #1f2937;
+
+  --radius-sharp: 4px;
+  --shadow-soft: 0 0 0 1px rgba(99,102,241,0.25), 0 18px 45px rgba(0,0,0,0.7);
+
+  --transition-fast: 0.16s ease-out;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,0.4);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148,163,184,0.6);
+}
+
+.scroll-y {
+  overflow-y: auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+body {
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+}
